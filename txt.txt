@@ -1,0 +1,45 @@
+dashboards = {
+        'arafarialima': {
+            'title': 'Ara Faria Lima',
+            'iframe_src': 'https://app.powerbi.com/view?r=eyJrIjoiYmRiZjY4YzktOGMxZS00ZjdkLThiNTMtMGY5MjBjZGJhYzU1IiwidCI6IjM2YTcwOGM2LWEwYzgtNDYyYy05MjE1LWY2YzI3ZGNiNjZhMCJ9'
+        },
+        'chamados_ti': {
+            'title': 'Chamados T.I',
+            'iframe_src': 'https://app.powerbi.com/view?r=eyJrIjoiOTRkZTllNDMtY2QyNS00ZDJlLTgxNDktODNhNjhlZDk4MTEyIiwidCI6IjM2YTcwOGM2LWEwYzgtNDYyYy05MjE1LWY2YzI3ZGNiNjZhMCJ9'
+        },
+        'dp_rh': {
+            'title': 'DP - RH',
+            'iframe_src': 'https://app.powerbi.com/view?r=eyJrIjoiOTRkZTllNDMtY2QyNS00ZDJlLTgxNDktODNhNjhlZDk4MTEyIiwidCI6IjM2YTcwOGM2LWEwYzgtNDYyYy05MjE1LWY2YzI3ZGNiNjZhMCJ9'
+        },
+        'financeiro_mv': {
+            'title': 'Financeiro MV',
+            'iframe_src': 'https://app.powerbi.com/view?r=eyJrIjoiOTRkZTllNDMtY2QyNS00ZDJlLTgxNDktODNhNjhlZDk4MTEyIiwidCI6IjM2YTcwOGM2LWEwYzgtNDYyYy05MjE1LWY2YzI3ZGNiNjZhMCJ9'
+        },
+        'financeiro_gerenciamento': {
+            'title': 'Financeiro Gerenciamento',
+            'iframe_src': 'https://app.powerbi.com/view?r=eyJrIjoiOTRkZTllNDMtY2QyNS00ZDJlLTgxNDktODNhNjhlZDk4MTEyIiwidCI6IjM2YTcwOGM2LWEwYzgtNDYyYy05MjE1LWY2YzI3ZGNiNjZhMCJ9'
+        },
+        'financeiro_visna': {
+            'title': 'Financeiro Visna',
+            'iframe_src': 'https://app.powerbi.com/view?r=eyJrIjoiOTRkZTllNDMtY2QyNS00ZDJlLTgxNDktODNhNjhlZDk4MTEyIiwidCI6IjM2YTcwOGM2LWEwYzgtNDYyYy05MjE1LWY2YzI3ZGNiNjZhMCJ9'
+        },
+        'indicadores': {
+            'title': 'Indicadores financeiros',
+            'iframe_src': 'https://app.powerbi.com/view?r=eyJrIjoiOTRkZTllNDMtY2QyNS00ZDJlLTgxNDktODNhNjhlZDk4MTEyIiwidCI6IjM2YTcwOGM2LWEwYzgtNDYyYy05MjE1LWY2YzI3ZGNiNjZhMCJ9'
+        },
+        'processos_mv': {
+            'title': 'Processos MV',
+            'iframe_src': 'https://app.powerbi.com/view?r=eyJrIjoiOTRkZTllNDMtY2QyNS00ZDJlLTgxNDktODNhNjhlZDk4MTEyIiwidCI6IjM2YTcwOGM2LWEwYzgtNDYyYy05MjE1LWY2YzI3ZGNiNjZhMCJ9'
+        },
+        'suprimentos': {
+            'title': 'Suprimentos',
+            'iframe_src': 'https://app.powerbi.com/view?r=eyJrIjoiOTRkZTllNDMtY2QyNS00ZDJlLTgxNDktODNhNjhlZDk4MTEyIiwidCI6IjM2YTcwOGM2LWEwYzgtNDYyYy05MjE1LWY2YzI3ZGNiNjZhMCJ9'
+        },
+        'indices': {
+            'title': 'Índices',
+            'iframe_src': 'https://app.powerbi.com/view?r=eyJrIjoiOTRkZTllNDMtY2QyNS00ZDJlLTgxNDktODNhNjhlZDk4MTEyIiwidCI6IjM2YTcwOGM2LWEwYzgtNDYyYy05MjE1LWY2YzI3ZGNiNjZhMCJ9'
+        },
+        'quadro_oferta': {
+            'title': 'Quadro de oferta',
+            'iframe_src': 'https://app.powerbi.com/view?r=eyJrIjoiOTRkZTllNDMtY2QyNS00ZDJlLTgxNDktODNhNjhlZDk4MTEyIiwidCI6IjM2YTcwOGM2LWEwYzgtNDYyYy05MjE1LWY2YzI3ZGNiNjZhMCJ9'
+        },

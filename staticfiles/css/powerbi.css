@@ -1,0 +1,189 @@
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+/* Header principal sem bordas ou sombras */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #cccccc;
+    padding: 0 20px; /* Remover padding superior para alinhamento */
+    height: 60px; /* Define a altura da header */
+    box-shadow: none; /* Remove qualquer sombra */
+    border: none; /* Remove qualquer borda */
+    position: relative; /* Torna o posicionamento relativo para centralizar o ícone */
+}
+
+.menu-icon-img {
+    width: 30px;
+    height: auto;
+    cursor: pointer;
+}
+
+.main-header h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #000;
+    margin: 0;
+    text-align: center; /* Centraliza o texto do título */
+    flex-grow: 1; /* Faz o título ocupar o espaço disponível */
+}
+
+/* Ajusta o ícone de menu para ficar centralizado verticalmente */
+.menu-icon {
+    position: absolute;
+    top: 50%; /* Centraliza verticalmente */
+    left: 10px; /* Posição à esquerda */
+    transform: translateY(-50%); /* Ajuste exato para centralização vertical */
+    cursor: pointer;
+    z-index: 10;
+}
+
+.logo-mv {
+    width: 60px; /* Ajuste o tamanho do logo */
+    height: auto;
+    margin-left: auto; /* Empurra o logo para a extrema direita */
+}
+
+/* Sidebar oculta inicialmente, agora abaixo da header */
+.sidebar {
+    position: fixed;
+    top: 60px; /* A sidebar começa logo abaixo da header */
+    left: -300px; /* Inicialmente oculta à esquerda */
+    width: 300px; /* Largura da sidebar */
+    height: calc(100% - 60px); /* Sidebar ocupa o restante da altura da tela */
+    background-color: #333;
+    color: white; /* Cor do texto */
+    padding-top: 20px;
+    transition: left 0.3s ease;
+    display: flex;
+    flex-direction: column; /* Permite organizar os elementos verticalmente */
+    justify-content: space-between; /* Distribui o conteúdo */
+}
+
+.sidebar.visible {
+    left: 0; /* Sidebar visível, entra na tela */
+}
+
+/* Estilo para a lista de links */
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1; /* Permite que a lista ocupe o espaço restante da sidebar */
+    overflow-y: auto; /* Adiciona rolagem caso haja muitos itens */
+}
+
+.sidebar ul li {
+    padding: 10px;
+    text-align: left;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    display: inline-block;
+    padding: 10px 0;
+    margin-left: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+    background-color: #575757; /* Cor de fundo ao passar o mouse */
+}
+
+.sidebar ul li a:active {
+    background-color: #444444; /* Cor ao clicar */
+}
+
+.sidebar ul li a:visited {
+    color: #ccc; /* Cor dos links visitados */
+}
+
+/* Botão de logout */
+.logout {
+    padding: 10px;
+    width: 100%;
+}
+
+.logout-button:hover {
+    background-color: #575757;
+}
+
+/* Área de conteúdo */
+.content {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 60px); /* Calcula a altura total menos a altura da header */
+    padding: 0;
+    overflow: hidden; /* Remove qualquer rolagem dentro da área de conteúdo */
+    background-color: #fff;
+    box-sizing: border-box; /* Garante que o padding e border sejam incluídos no cálculo da altura */
+}
+
+/* Ajuste para o iframe ocupar todo o espaço restante */
+.content iframe {
+    flex-grow: 1; /* Faz o iframe crescer e ocupar o espaço restante */
+    width: 100%; /* Largura total */
+    height: 100%; /* Altura total disponível */
+    border: none; /* Remove a borda do iframe */
+}
+
+/* Remover as margens padrão e evitar barra de rolagem */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden; /* Remove a barra de rolagem */
+    box-sizing: border-box; /* Garante que tudo se ajuste corretamente dentro da altura da página */
+}
+
+/* Estilo do ícone de usuário na parte superior da sidebar */
+.user-icon {
+    width: 30px;
+    height: auto;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+/* Estilo do ícone de dashboard */
+.dashboard-icon {
+    width: 35px;
+    height: auto;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+/* Ícone de logout */
+.logout-icon {
+    width: 35px;
+    height: auto;
+    margin-right: 8px;
+}
+
+.logout-button {
+    background-color: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center; /* Garante que o ícone e o texto estejam alinhados verticalmente */
+    justify-content: flex-start; /* Alinha o texto e o ícone à esquerda */
+    padding: 10px 15px;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.logout-button:hover {
+    background-color: #575757;
+}
+
+/* Ajuste para o formulário de logout (caso esteja dentro de um form) */
+.logout form {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Alinha o texto e o ícone à esquerda */
+}

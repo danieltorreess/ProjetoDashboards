@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'css/usuario.css' %}" />
+  </head>
+  <body>
+    <div class="header">
+      <img src="{% static 'img/MV.png' %}" alt="Logo MV" />
+      <h2>engenharia de soluções</h2>
+    </div>
+
+    <div class="login-page">
+      <div class="left-panel">
+        <h1>Olá,</h1>
+        <p>
+          Acompanhe os relatórios da <strong>MV engenharia de soluções</strong>
+        </p>
+        <img src="{% static 'img/Dashboard.png' %}" alt="Icone" class="dashboard-icon">
+      </div>
+
+      <div class="right-panel">
+        <h2>Login</h2>
+
+        <form method="POST" autocomplete="off">
+          {% csrf_token %}
+          <div class="form-group">
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required />
+          </div>
+          <div class="form-group">
+            <label for="password">Senha:</label>
+            <input type="password" id="password" name="password" placeholder="Digite sua senha" required />
+          </div>
+          
+          <!-- Exibir mensagem de erro abaixo do campo de senha -->
+          {% if messages %}
+          <div class="error-message">
+            {% for message in messages %}
+            <p class="error">{{ message }}</p>
+            {% endfor %}
+          </div>
+          {% endif %}
+
+          <button type="submit">Entrar</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

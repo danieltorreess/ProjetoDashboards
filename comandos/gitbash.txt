@@ -1,0 +1,12 @@
+mkdir -p ~/.ssh
+ssh-keygen -f C:/Users/Cicero/.ssh/danieltorres_rsa -t rsa -b 4096
+cat C:/Users/Cicero/.ssh/danieltorres_rsa.pub
+
+git remote -v
+git remote add origin https://github.com/danieltorreess/ProjetoAgendaDjango.git
+git remote set-url origin https://github.com/danieltorreess/ProjetoAgendaDjango.git
+git push origin main -u
+git remote -v  # Verifica a configuração do repositório remoto
+git remote add origin https://github.com/danieltorreess/ProjetoAgendaDjango.git  # Adiciona o repositório remoto
+git remote set-url origin https://github.com/danieltorreess/ProjetoAgendaDjango.git  # Atualiza a URL do repositório remoto
+git push origin main -u  # Faz o push para o repositório remoto

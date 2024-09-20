@@ -1,0 +1,165 @@
+/* Estilos gerais */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.header {
+    background-color: #d3d3d3; /* Cinza claro */
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+}
+
+.header img {
+    width: 70px;
+    margin-right: 15px;
+}
+
+.header h2 {
+    margin: 0;
+    font-size: 24px;
+    color: #333;
+}
+
+/* Container da página de login */
+.login-page {
+    display: flex;
+    justify-content: space-between; /* Aumenta o espaço entre os painéis */
+    width: 100%; /* Garante que ocupe toda a largura */
+    max-width: 1200px; /* Limita a largura máxima da página */
+    margin: 0 auto; /* Centraliza o conteúdo na tela */
+    padding-top: 100px;
+    box-sizing: border-box;
+}
+
+/* Painel esquerdo */
+.left-panel {
+    width: 30%; /* Ajusta a largura do painel esquerdo */
+    padding: 20px;
+}
+
+/* Ajuste no h1 do left-panel */
+.left-panel h1 {
+    font-size: 36px;
+    color: #000;
+    margin-bottom: 10px;
+    margin-top: 0px; /* Remove qualquer margem superior */
+}
+
+/* Ajuste no p do left-panel */
+.left-panel p {
+    font-size: 26px;
+    color: #333;
+    margin-top: 0px; /* Remove qualquer margem superior */
+}
+
+
+.left-panel strong {
+    font-weight: bold;
+}
+
+/* Ajustando a imagem dentro do .left-panel */
+.left-panel .dashboard-icon {
+    width: 150px; /* Aumenta o tamanho da imagem */
+    position: relative; /* Permite mover a imagem sem afetar outros elementos */
+    top: 40px; /* Move a imagem para baixo */
+    left: -20px; /* Move a imagem para a esquerda */
+}
+
+/* Painel direito */
+.right-panel {
+    width: 25%; /* Ajusta a largura do painel direito */
+    background-color: #f8c68a;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.right-panel h2 {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 10px;
+    color: #000;
+}
+
+/* Formulário */
+form {
+    width: 100%; /* Faz o formulário ocupar toda a largura disponível */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch; /* Faz os inputs e botão ocuparem toda a largura disponível */
+}
+
+/* Ajuste da form-group para alinhar label e input */
+.form-group {
+    display: flex;
+    flex-direction: column; /* Organiza a label acima do input */
+    align-items: flex-start; /* Garante que a label fique à esquerda */
+    width: 100%; /* Garante que o grupo ocupe toda a largura disponível */
+}
+
+/* Labels */
+.form-group label {
+    font-size: 16px;
+    color: #000;
+    margin-top: 20px;
+    margin-bottom: 3px; /* Aumenta o espaçamento entre a label e o input */
+    display: block;
+    font-weight: bold; /* Deixa as labels em negrito */
+}
+
+/* Inputs */
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 10px; /* Adiciona bordas arredondadas */
+    background-color: #f5f5f5; /* Altera a cor de fundo dos inputs */
+    margin-top: 0px;
+    box-sizing: border-box;
+    color: #333;
+}
+
+/* Botão */
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #0056a3;
+    color: white;
+    border: none;
+    border-radius: 10px; /* Adiciona bordas arredondadas ao botão */
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 25px;
+}
+
+button:hover {
+    background-color: #003e7e; /* Azul escuro no hover */
+}
+
+.error-message {
+    margin-top: 0px; /* Diminui o espaço entre a mensagem e o campo anterior */
+    text-align: center;
+}
+
+.error {
+    color: red;
+    font-weight: bold;
+    margin-bottom: 0px; /* Reduz o espaço inferior da mensagem */
+}
+
+
+

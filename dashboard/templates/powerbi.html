@@ -1,0 +1,108 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{% static 'css/powerbi.css' %}" />
+    <script>
+      // Função para alternar a exibição da sidebar
+      function toggleSidebar() {
+        var sidebar = document.querySelector('.sidebar')
+        sidebar.classList.toggle('visible')
+      }
+    </script>
+  </head>
+  <body>
+    <!-- Header principal -->
+    <header class="main-header">
+      <div class="menu-icon" onclick="toggleSidebar()">
+        <img src="{% static 'img/SubMenu.png' %}" alt="Menu" class="menu-icon-img" />
+      </div>
+      <h1>Power B.I x MV</h1>
+      <img src="{% static 'img/MV.png' %}" alt="Logo MV" class="logo-mv" />
+    </header>
+
+    <!-- Sidebar com links de dashboards, inicialmente oculta -->
+    <div class="sidebar">
+      <ul>
+        <!-- Usuário logado com ícone -->
+        <li>
+          <img src="{% static 'img/Usuario.png' %}" alt="Usuário" class="user-icon" />
+          <span>
+            {% if request.user.is_authenticated %}
+            <a href="{% url 'profile' %}">
+              {{ request.user.get_full_name|default:request.user.username }}
+            </a>
+              {% else %}
+              *Usuário*
+            {% endif %}
+          </span>
+        </li>
+        <!-- Lista de links do menu lateral com ícone de dashboard -->
+        <li>
+          <img src="{% static 'img/AraFariaLima.png' %}" alt="Dashboard Icon" class="dashboard-icon" />
+          <a href="{% url 'dashboard:dashboard_view' 'arafarialima' %}">Ara Faria Lima</a>
+        </li>
+        <li>
+          <img src="{% static 'img/TI.png' %}" alt="Dashboard Icon" class="dashboard-icon" />
+          <a href="{% url 'dashboard:dashboard_view' 'chamados_ti' %}">Chamados T.I</a>
+        </li>
+        <li>
+          <img src="{% static 'img/DP.png' %}" alt="Dashboard Icon" class="dashboard-icon" />
+          <a href="{% url 'dashboard:dashboard_view' 'dp_rh' %}">DP - RH</a>
+        </li>
+        <li>
+          <img src="{% static 'img/Financeiro.png' %}" alt="Dashboard Icon" class="dashboard-icon" />
+          <a href="{% url 'dashboard:dashboard_view' 'financeiro_mv' %}">Financeiro MV</a>
+        </li>
+        <li>
+          <img src="{% static 'img/Gerenciamento.png' %}" alt="Dashboard Icon" class="dashboard-icon" />
+          <a href="{% url 'dashboard:dashboard_view' 'financeiro_gerenciamento' %}">Financeiro Gerenciamento</a>
+        </li>
+        <li>
+          <img src="{% static 'img/Visna.png' %}" alt="Dashboard Icon" class="dashboard-icon" />
+          <a href="{% url 'dashboard:dashboard_view' 'financeiro_visna' %}">Financeiro Visna</a>
+        </li>
+        <li>
+          <img src="{% static 'img/Indicadores.png' %}" alt="Dashboard Icon" class="dashboard-icon" />
+          <a href="{% url 'dashboard:dashboard_view' 'indicadores' %}">Indicadores financeiros</a>
+        </li>
+        <li>
+          <img src="{% static 'img/Processos.png' %}" alt="Dashboard Icon" class="dashboard-icon" />
+          <a href="{% url 'dashboard:dashboard_view' 'processos_mv' %}">Processos MV</a>
+        </li>
+        <li>
+          <img src="{% static 'img/Suprimentos.png' %}" alt="Dashboard Icon" class="dashboard-icon" />
+          <a href="{% url 'dashboard:dashboard_view' 'suprimentos' %}">Suprimentos</a>
+        </li>
+        <li>
+          <img src="{% static 'img/Indices.png' %}" alt="Dashboard Icon" class="dashboard-icon" />
+          <a href="{% url 'dashboard:dashboard_view' 'indices' %}">Índices</a>
+        </li>
+        <li>
+          <img src="{% static 'img/Dashboard.png' %}" alt="Dashboard Icon" class="dashboard-icon" />
+          <a href="{% url 'dashboard:dashboard_view' 'quadro_oferta' %}">Quadro de oferta</a>
+        </li>
+
+        <!-- Botão de Logout com ícone -->
+        <li class="logout">
+          <form method="POST" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button type="submit" class="logout-button">
+              <img src="{% static 'img/Logout.png' %}" alt="Sair" class="logout-icon" />
+              Sair
+            </button>
+          </form>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Área de conteúdo principal -->
+    <div class="content">
+      <iframe title="{{ title }}" width="100%" height="500px" src="{{ iframe_src }}" frameborder="0" allowFullScreen="true"></iframe>
+    </div>
+  </body>
+</html>
