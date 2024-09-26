@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #F4F4F4;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden; /* Remove a barra de rolagem */
+    box-sizing: border-box; /* Garante que tudo se ajuste corretamente dentro da altura da página */
+}
+
+.main-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: #B3B3B3;
+    padding: 10px 20px;
+    width: 100%;
+}
+
+.main-header .title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.main-header .mv-logo {
+    height: 50px;
+    margin-left: auto;
+}
+
+.profile-container {
+    background-color: #FBBE85;
+    padding: 30px;
+    border-radius: 10px;
+    width: 400px;
+    margin: 25px auto;
+}
+
+h1 {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.form-section {
+    margin-bottom: 20px;
+}
+
+.form-section h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+label {
+    font-size: 14px;
+    display: block;
+    margin-top: 8px;
+    margin-bottom: 3px;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}

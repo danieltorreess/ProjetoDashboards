@@ -18,29 +18,39 @@
   <body>
     <!-- Header principal -->
     <header class="main-header">
-      <div class="menu-icon" onclick="toggleSidebar()">
-        <img src="{% static 'img/SubMenu.png' %}" alt="Menu" class="menu-icon-img" />
+      <!-- Agrupar o menu e logo -->
+      <div class="menu-logo-container">
+        <div class="menu-icon" onclick="toggleSidebar()">
+          <img src="{% static 'img/SubMenu.png' %}" alt="Menu" class="menu-icon-img" />
+        </div>
+        <img src="{% static 'img/MV.png' %}" alt="Logo MV" class="logo-mv" />
       </div>
+      
+      <!-- Título centralizado -->
       <h1>Power B.I x MV</h1>
-      <img src="{% static 'img/MV.png' %}" alt="Logo MV" class="logo-mv" />
+    
+      <div class="user-info">
+        <span class="dropdown-trigger">{{ request.user.first_name }} {{ request.user.last_name }}</span>
+        <img src="{% static 'img/Usuario.png' %}" alt="Usuário" class="usuario" />
+        <div class="dropdown-content">
+          <!-- Formulário para home -->
+          <form method="get" action="{% url 'dashboard:dashboard_view' 'arafarialima' %}">
+            <button type="submit" class="dropdown-button">Home</button>
+          </form>
+          <form method="get" action="{% url 'profile' %}">
+            <button type="submit" class="dropdown-button">Configurações</button>
+          </form>
+          <form method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button type="submit" class="dropdown-button">Logout</button>
+          </form>
+        </div>
+      </div>
     </header>
-
+    
     <!-- Sidebar com links de dashboards, inicialmente oculta -->
     <div class="sidebar">
       <ul>
-        <!-- Usuário logado com ícone -->
-        <li>
-          <img src="{% static 'img/Usuario.png' %}" alt="Usuário" class="user-icon" />
-          <span>
-            {% if request.user.is_authenticated %}
-            <a href="{% url 'profile' %}">
-              {{ request.user.get_full_name|default:request.user.username }}
-            </a>
-              {% else %}
-              *Usuário*
-            {% endif %}
-          </span>
-        </li>
         <!-- Lista de links do menu lateral com ícone de dashboard -->
         <li>
           <img src="{% static 'img/AraFariaLima.png' %}" alt="Dashboard Icon" class="dashboard-icon" />

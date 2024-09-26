@@ -80,14 +80,15 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
 
-# Static files (CSS, JavaScript, Images)
+# URL de arquivos estáticos
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'dashboard/static'),
-]
 
-# O diretório onde os arquivos estáticos coletados serão armazenados
+# Diretórios adicionais onde buscar arquivos estáticos durante o desenvolvimento
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'dashboard', 'static')]
+
+# Diretório para onde os arquivos estáticos serão coletados em produção
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 
 LOGIN_URL = '/login/'
 
