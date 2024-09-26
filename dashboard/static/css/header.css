@@ -1,0 +1,160 @@
+/* Remover as margens padrão e evitar barra de rolagem */
+html, body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden; /* Remove a barra de rolagem */
+    box-sizing: border-box; /* Garante que tudo se ajuste corretamente dentro da altura da página */
+}
+
+/* Estilo do Header */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f0f0f0;
+    padding: 0 20px;
+    height: 60px;
+    position: relative; /* Necessário para o posicionamento absoluto do h1 */
+    border-bottom: 1px solid #00000048; /* Borda inferior suave */
+}
+
+.menu-logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.menu-icon-img {
+    width: 40px;
+    cursor: pointer;
+}
+
+.logo-mv {
+    width: 60px;
+    margin-left: 10px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    position: relative;
+    /* Isso é necessário para o dropdown ser posicionado corretamente */
+    cursor: pointer;
+}
+
+.user-info img {
+    margin-left: 10px;
+    /* Espaçamento entre o nome e o ícone do usuário */
+    width: 35px;
+    border-radius: 50%;
+}
+
+.user-info .dropdown-trigger {
+    cursor: pointer;
+    color: black;
+    font-size: 1em;
+    margin-right: 10px;
+    font-weight: bold; /* Deixa o nome do usuário em negrito */
+}
+
+/* Centralização absoluta do h1 */
+.main-header h1 {
+    position: absolute;
+    left: 50%; /* Centraliza horizontalmente em relação ao header */
+    transform: translateX(-50%); /* Ajusta o centro real */
+    font-size: 24px;
+    font-weight: bold;
+    color: #000;
+    margin: 0;
+}
+
+/* Estilo do dropdown */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 150px; /* Aumentei a largura mínima para comportar o texto */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    right: 0;
+    top: 100%;
+    margin-top: 2px;
+    left: -10px; /* Move o dropdown um pouco para a direita */
+}
+
+/* Estilo para os botões do dropdown */
+.dropdown-button {
+    background-color: #ffffff; /* Cor de fundo branca */
+    color: #333; /* Cor do texto */
+    border: 1px solid #ddd; /* Borda leve */
+    padding: 10px 15px; /* Adiciona padding para espaçamento */
+    text-align: left; /* Alinhamento do texto à esquerda */
+    width: 100%; /* Garante que o botão ocupe toda a largura disponível */
+    display: block; /* Exibe o botão como um bloco */
+    cursor: pointer; /* Cursor de pointer */
+}
+
+.dropdown-button:hover {
+    background-color: #f0f0f0; /* Cor de fundo ao passar o mouse */
+}
+
+.dropdown-button:active {
+    background-color: #ddd; /* Cor de fundo ao clicar */
+}
+
+.user-info:hover .dropdown-content {
+    display: block;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background-color: #333;
+    color: white;
+    position: fixed;
+    left: -250px;
+    top: 60px;
+    bottom: 0;
+    overflow-y: auto;
+    transition: left 0.3s ease;
+}
+
+.sidebar.visible {
+    left: 0;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 15px 15px; /* Ajusta o espaçamento interno (vertical e horizontal) */
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s ease; /* Transição suave para o efeito hover */
+    margin-top: -15px; /* Eleva um pouco os itens da lista */
+    margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    padding-left: 10px;
+    display: block;
+    width: 100%; /* Para que o link ocupe toda a área do item */
+    transition: color 0.3s ease; /* Transição suave para a cor do texto */
+}
+
+.sidebar ul li:hover {
+    background-color: #575757; /* Muda o fundo ao passar o mouse sobre o item */
+}
+
+.sidebar ul li a:hover {
+    color: #fff; /* Cor do texto no hover */
+}
+
+.dashboard-icon {
+    width: 30px;
+}

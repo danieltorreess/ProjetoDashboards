@@ -11,6 +11,7 @@ ProjetoDashboards/
                 powerbi.css
                 profile.css
                 usuario.css
+                header.css
             img/
                 AraFariaLima.png
                 Dashboard.png
@@ -28,9 +29,11 @@ ProjetoDashboards/
                 Usuario.png
                 Visna.png
         templates/
+            base.html
             powerbi.html
             profile.html
             usuario.html
+            header.html
         __init__.py
         admin.py
         apps.py
@@ -74,6 +77,7 @@ ProjetoDashboards/
             Visna.png
 
 
+# Criação do projeto
 python -m venv venv 
 .\venv\Scripts\activate
 pip install django
@@ -86,6 +90,7 @@ python manage.py runserver
 python manage.py migrate
 python manage.py showmigrations
 
+# Criação do superuser no Admin do Django
 python manage.py createsuperuser
 
 cicero.torres@mvconstrucoes.com.br - @Mva2022

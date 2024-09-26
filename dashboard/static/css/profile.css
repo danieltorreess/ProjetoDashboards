@@ -1,102 +1,175 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
-
-body {
-    background-color: #F4F4F4;
-}
-
+/* Remover as margens padrão e evitar barra de rolagem */
 html, body {
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
     height: 100%;
-    overflow: hidden; /* Remove a barra de rolagem */
-    box-sizing: border-box; /* Garante que tudo se ajuste corretamente dentro da altura da página */
-}
-
-.main-header {
-    position: relative;
-    display: flex;
-    align-items: center;
-    background-color: #B3B3B3;
-    padding: 10px 20px;
-    width: 100%;
-}
-
-.main-header .title {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 24px;
-    font-weight: bold;
-    text-align: center;
-}
-
-.main-header .mv-logo {
-    height: 50px;
-    margin-left: auto;
-}
-
-.profile-container {
-    background-color: #FBBE85;
-    padding: 30px;
-    border-radius: 10px;
-    width: 400px;
-    margin: 25px auto;
+    overflow: hidden;
+    box-sizing: border-box;
 }
 
 h1 {
-    font-size: 24px;
-    text-align: center;
-    margin-bottom: 20px;
+    font-size: 30px;
+    margin-bottom: 10px;
+    color: #333;
 }
 
 h2 {
-    font-size: 20px;
-    text-align: center;
+    font-size: 16px;
     margin-bottom: 5px;
-}
-
-.form-section {
-    margin-bottom: 20px;
-}
-
-.form-section h2 {
-    font-size: 18px;
-    margin-bottom: 10px;
+    color: #F2F2F2;
 }
 
 label {
     font-size: 14px;
     display: block;
-    margin-top: 8px;
-    margin-bottom: 3px;
+    margin-top: 5px;
+    margin-bottom: 5px;
     font-weight: bold;
+    color: #F2F2F2;
+    width: 85%; /* Define a mesma largura que os inputs */
+    margin-left: auto;  /* Centraliza a label horizontalmente */
+    margin-right: auto; /* Centraliza a label horizontalmente */
+    text-align: left; /* Mantém o texto alinhado à esquerda */
 }
 
 input {
     width: 100%;
-    padding: 5px;
-    margin-bottom: 5px;
-    border: 1px solid #ccc;
+    padding: 7px;
+    margin-bottom: 10px;
+    border: 1px solid #F2F2F2;
     border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
 }
 
-button {
-    display: block;
-    width: 100%;
+/* Container principal */
+.login-page {
+    display: flex;
+    height: calc(100vh - 60px);  /* Altura total da tela menos a header */
+    width: 100%;  /* O container ocupa toda a largura */
+}
+
+/* Painel esquerdo */
+.left-panel {
+    flex: 3; /* O painel esquerdo ocupará 75% da largura */
+    background-color: #cccccc; /* Cor cinza para o painel esquerdo */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; /* Alinha itens à esquerda */
+    padding: 20px;
+}
+
+.left-panel h1 {
+    text-align: left;
+    color: #000;
+    margin-bottom: 10px; /* Ajuste para aproximar do parágrafo */
+    font-size: 40px;
+}
+
+.left-panel p {
+    text-align: left;
+    font-size: 25px;
+    color: #333;
+    margin-bottom: 30px;
+    margin-bottom: 20px; /* Ajuste a margem inferior para menos espaçamento */
+}
+
+.left-panel img.dashboard-icon {
+    width: 120px;
+    height: auto;
+    margin-top: 30px;
+}
+
+.left-panel h1, .left-panel p, .left-panel img.dashboard-icon {
+    margin-left: 20px; /* Adiciona uma margem à esquerda para deslocar o conteúdo */
+}
+
+/* Painel direito */
+.right-panel {
+    flex: 1; /* O painel direito ocupará 25% da largura */
+    background-color: #0B243B;  /* Cor laranja suave para o painel direito */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;  /* Centraliza verticalmente */
+    align-items: center;  /* Centraliza horizontalmente */
     padding: 10px;
-    background-color: #007bff;
-    color: white;
+    overflow-y: auto; /* Adiciona rolagem para ver todos os itens */
+    position: relative;  /* Necessário para centralização absoluta dos elementos */
+}
+
+/* Centralizar o h2 */
+.right-panel h2 {
+    color: #F2F2F2;
+    margin-bottom: 10px;
+    text-align: center; /* Centraliza o texto do título */
+}
+
+.form-section {
+    width: 100%;
+}
+
+.right-panel form {
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Centralização dos inputs */
+.right-panel input {
+    background-color: #848484;
+    color: #F2F2F2;
+    border: none;
+    padding: 8px;
+    border-radius: 5px;
+    margin-bottom: 20px;  /* Ajusta a margem inferior para espaçamento uniforme */
+    width: 85%;  /* Reduz a largura para 85% */
+    font-size: 14px;
+    box-sizing: border-box;
+    margin-left: auto;  /* Centraliza os inputs horizontalmente */
+    margin-right: auto; /* Centraliza os inputs horizontalmente */
+    display: block; /* Garante que os inputs se comportem como blocos para a centralização */
+}
+
+/* Botão de salvar */
+.right-panel button {
+    background-color: #FF8000;
+    color: #F2F2F2;
+    font-size: 16px;
+    padding: 8px;
     border: none;
     border-radius: 5px;
-    font-size: 16px;
     cursor: pointer;
+    width: 85%;  /* Reduz a largura do botão para 85% */
+    margin-top: 25px;  /* Adiciona margem superior para espaçamento */
+    display: block; /* Garante que o botão se comporte como bloco */
+    margin-left: auto;  /* Centraliza o botão horizontalmente */
+    margin-right: auto; /* Centraliza o botão horizontalmente */
+    text-align: center; /* Garante que o texto dentro do botão esteja centralizado */
+    max-width: none;
 }
 
-button:hover {
-    background-color: #0056b3;
+.right-panel button:hover {
+    background-color: #FAAC58; /* Laranja mais escuro */
+}
+
+.error-message {
+    color: red;
+    margin-bottom: 15px;
+}
+
+/* Responsividade */
+@media (max-width: 800px) {
+    .login-page {
+        flex-direction: column;  /* Empilha os painéis verticalmente em telas pequenas */
+    }
+
+    .right-panel,
+    .left-panel {
+        width: 100%;  /* Os painéis ocupam 100% da largura */
+    }
+
+    .right-panel {
+        margin-top: 20px;  /* Adiciona espaçamento entre os painéis */
+    }
 }

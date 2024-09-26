@@ -1,23 +1,26 @@
+{% extends 'base.html' %}
+
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atualizar Perfil</title>
-    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
-</head>
-<body>
-    <header class="main-header">
-        <div class="title">Atualizar Perfil</div>
-        <img src="{% static 'img/MV.png' %}" alt="Logo MV" class="mv-logo">
-    </header>
+{% block title %}Atualizar Perfil{% endblock %}
 
-    <div class="profile-container">
-        <form method="POST">
-            {% csrf_token %}
-            <div class="form-section">
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="login-page">
+        <div class="left-panel">
+            <h1>Olá,</h1>
+            <p>
+                Acompanhe os relatórios da <strong>MV engenharia de soluções</strong>.
+            </p>
+            <img src="{% static 'img/Dashboard.png' %}" alt="Icone" class="dashboard-icon">
+        </div>
+
+        <div class="right-panel">
+            <form method="POST">
+                {% csrf_token %}
                 <h2>Informações de Perfil</h2>
 
                 <label for="username">Nome de usuário:</label>
@@ -31,23 +34,30 @@
 
                 <label for="email">E-mail:</label>
                 <input type="email" id="email" name="email" value="{{ user.email }}" required>
-            </div>
 
-            <div class="form-section">
-                <h2>Alterar Senha</h2>
+                <div class="form-section">
+                    <h2>Alterar Senha</h2>
 
-                <label for="old_password">Senha atual:</label>
-                <input type="password" id="old_password" name="old_password">
+                    <label for="old_password">Senha atual:</label>
+                    <input type="password" id="old_password" name="old_password">
 
-                <label for="new_password">Nova senha:</label>
-                <input type="password" id="new_password" name="new_password">
+                    <label for="new_password">Nova senha:</label>
+                    <input type="password" id="new_password" name="new_password">
 
-                <label for="new_password_confirmation">Confirme a nova senha:</label>
-                <input type="password" id="new_password_confirmation" name="new_password_confirmation">
-            </div>
+                    <label for="new_password_confirmation">Confirme a nova senha:</label>
+                    <input type="password" id="new_password_confirmation" name="new_password_confirmation">
+                </div>
 
-            <button type="submit">Salvar Alterações</button>
-        </form>
+                {% if messages %}
+                <div class="error-message">
+                    {% for message in messages %}
+                    <p class="error">{{ message }}</p>
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+                <button type="submit">Salvar Alterações</button>
+            </form>
+        </div>
     </div>
-</body>
-</html>
+{% endblock %}
