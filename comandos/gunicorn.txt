@@ -1,75 +1,75 @@
 ###############################################################################
 # Replace
-# __GUNICORN_FILE_NAME__ the name of the gunicorn file you want
-# __YOUR_USER__ your user name
-# __APP_ROOT_NAME__ the folder name of your project
-# __WSGI_FOLDER_NAME__ the folder name where you find a file called wsgi.py
+# dashboard the name of the gunicorn file you want
+# cicero your user name
+# dashboardapp the folder name of your project
+# project the folder name where you find a file called wsgi.py
 #
 ###############################################################################
-# Criando o arquivo __GUNICORN_FILE_NAME__.socket
-sudo nano /etc/systemd/system/__GUNICORN_FILE_NAME__.socket
+# Criando o arquivo dashboard.socket
+sudo nano /etc/systemd/system/dashboard.socket
 
 ###############################################################################
 # Conteúdo do arquivo
 [Unit]
-Description=gunicorn __GUNICORN_FILE_NAME__ socket
+Description=gunicorn dashboard socket
 
 [Socket]
-ListenStream=/run/__GUNICORN_FILE_NAME__.socket
+ListenStream=/run/dashboard.socket
 
 [Install]
 WantedBy=sockets.target
 
 ###############################################################################
-# Criando o arquivo __GUNICORN_FILE_NAME__.service
-sudo nano /etc/systemd/system/__GUNICORN_FILE_NAME__.service
+# Criando o arquivo dashboard.service
+sudo nano /etc/systemd/system/dashboard.service
 
 ###############################################################################
 # Conteúdo do arquivo
 [Unit]
 Description=Gunicorn daemon (You can change if you want)
-Requires=__GUNICORN_FILE_NAME__.socket
+Requires=dashboard.socket
 After=network.target
 
 [Service]
-User=__YOUR_USER__
+User=cicero
 Group=www-data
 Restart=on-failure
-# EnvironmentFile=/home/__YOUR_USER__/__APP_ROOT_NAME__/.env
-WorkingDirectory=/home/__YOUR_USER__/__APP_ROOT_NAME__
+# EnvironmentFile=/home/cicero/dashboardapp/.env
+WorkingDirectory=/home/cicero/dashboardapp
 # --error-logfile --enable-stdio-inheritance --log-level and --capture-output
 # are all for debugging purposes.
-ExecStart=/home/__YOUR_USER__/__APP_ROOT_NAME__/venv/bin/gunicorn \
-          --error-logfile /home/__YOUR_USER__/__APP_ROOT_NAME__/gunicorn-error-log \
+ExecStart=/home/cicero/dashboardapp/venv/bin/gunicorn \
+          --error-logfile /home/cicero/dashboardapp/gunicorn-error-log \
           --enable-stdio-inheritance \
           --log-level "debug" \
           --capture-output \
           --access-logfile - \
           --workers 6 \
-          --bind unix:/run/__GUNICORN_FILE_NAME__.socket \
-          __WSGI_FOLDER_NAME__.wsgi:application
+          --bind unix:/run/dashboard.socket \
+          project.wsgi:application
 
 [Install]
 WantedBy=multi-user.target
 
 ###############################################################################
 # Ativando
-sudo systemctl start __GUNICORN_FILE_NAME__.socket
-sudo systemctl enable __GUNICORN_FILE_NAME__.socket
+sudo systemctl start dashboard.socket
+sudo systemctl enable dashboard.socket
 
 # Checando
-sudo systemctl status __GUNICORN_FILE_NAME__.socket
-curl --unix-socket /run/__GUNICORN_FILE_NAME__.socket localhost
-sudo systemctl status __GUNICORN_FILE_NAME__
+sudo systemctl status dashboard.socket
+curl --unix-socket /run/dashboard.socket localhost
+sudo systemctl status dashboard
 
 # Restarting
-sudo systemctl restart __GUNICORN_FILE_NAME__.service
-sudo systemctl restart __GUNICORN_FILE_NAME__.socket
-sudo systemctl restart __GUNICORN_FILE_NAME__
+sudo systemctl restart dashboard.service
+sudo systemctl restart dashboard.socket
+sudo systemctl restart dashboard
 
 # After changing something
 sudo systemctl daemon-reload
 
 # Debugging
-sudo journalctl -u __GUNICORN_FILE_NAME__.service
-sudo journalctl -u __GUNICORN_FILE_NAME__.socket
+sudo journalctl -u dashboard.service
+sudo journalctl -u dashboard.socket

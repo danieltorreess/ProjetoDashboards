@@ -34,47 +34,48 @@ git config --global user.email 'seu_email@gmail.com'
 git config --global init.defaultBranch main
 
 Criando as pastas do projeto e repositório
-mkdir ~/agendarepo ~/agendaapp
+mkdir ~/dashboardrepo ~/dashboardapp
 
 Configurando os repositórios
-cd ~/agendarepo
+cd ~/dashboardrepo
 git init --bare
 cd ..
-cd ~/agendaapp
+cd ~/dashboardapp
 git init
-git remote add agendarepo ~/agendarepo
+git remote add dashboardrepo ~/dashboardrepo
 git add .
 git commit -m 'Initial'
-git push agendarepo main -u # erro
+git push dashboardrepo main -u # erro
 
 No seu computador local
-git remote add agendarepo usuario@IP_SERVIDOR:~/agendarepo
-git push agendarepo main
+git remote add dashboardrepo cicero@34.132.171.16:~/dashboardrepo
+git push dashboardrepo main
+$env:GIT_SSH_COMMAND="ssh -i ~/.ssh/danieltorres_rsa" git push dashboardrepo main
 
 No servidor
-cd ~/agendaapp
-git pull agendarepo main
+cd ~/dashboardapp
+git pull dashboardrepo main
 
 Configurando o Postgresql
 sudo -u postgres psql
 
-postgres=# create role usuario_agenda with login superuser createdb createrole password 'senha_usuario_agenda';
+postgres=# create role usuario_dashboard with login superuser createdb createrole password 'senha_usuario_dashboard';
 CREATE ROLE
-postgres=# create database projeto_agenda with owner usuario_agenda;
+postgres=# create database projeto_dashboard with owner usuario_dashboard;
 CREATE DATABASE
-postgres=# grant all privileges on database projeto_agenda to usuario_agenda;
+postgres=# grant all privileges on database projeto_dashboard to usuario_dashboard;
 GRANT
 postgres=# \q
 
 sudo systemctl restart postgresql
 
 Criando o local_settings.py no servidor
-nano ~/agendaapp/project/local_settings.py
+nano ~/dashboardapp/project/local_settings.py
 
 Cole os dados.
 
 Configurando o Django no servidor
-cd ~/agendaapp
+cd ~/dashboardapp
 python3.11 -m venv venv
 . venv/bin/activate
 pip install --upgrade pip

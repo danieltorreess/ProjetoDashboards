@@ -97,6 +97,24 @@ cicero.torres@mvconstrucoes.com.br - @Mva2022
 marcelo@mvconstrucoes.com.br - @Mva2024
 beretta@mvconstrucoes.com.br - @Mva2024
 
+# Deploy
+cd ~/.ssh
+ls
+PS C:\Users\Cicero> cd ~/.ssh
+PS C:\Users\Cicero\.ssh> ls
 
+
+    Diretório: C:\Users\Cicero\.ssh
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----        30/07/2024     10:42           3381 danieltorres_rsa
+-a----        30/07/2024     10:42            739 danieltorres_rsa.pub
+-a----        30/07/2024     09:58            828 known_hosts
+-a----        30/07/2024     09:58             92 known_hosts.old
+cat ~/.ssh/danieltorres_rsa.pub
+ssh -i ~/.ssh/danieltorres_rsa cicero@34.132.171.16
+* exit *
 
 
